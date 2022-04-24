@@ -44,8 +44,11 @@ Sample Inputs:
     Enter ami id='ami-023sd456s78'
     
 2. For starting/stopping/terminating an instance
+
     Give instanceid='i-081765edf56'
+   
 3. For creating S3 bucket
+
    Give Bucket name='myBucket'
 
 
