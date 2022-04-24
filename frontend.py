@@ -1,11 +1,15 @@
 from functions import *
-from flask import Flask, redirect, url_for, request, abort, render_template
+from flask import Flask, redirect, url_for, render_template
 app = Flask(__name__)
+
+# Home Page
 
 
 @app.route("/")
 def index():
     return render_template('index.html')
+
+# Ec2 Service home page
 
 
 @app.route("/ec2")
@@ -13,6 +17,7 @@ def ec2():
     return render_template('ec2.html')
 
 
+# Page for creating new ec2 instance
 @app.route("/new_ec2", methods=['POST', 'GET'])
 def createc2():
     if request.method == 'POST':
@@ -61,6 +66,8 @@ def terminatec2():
     else:
         return render_template('ec2.html')
 
+# S3 Service home page
+
 
 @ app.route("/s3")
 def s3():
@@ -93,5 +100,6 @@ def download():
     return render_template('s3.html')
 
 
+# This app is running on host:0.0.0.0 and  port 5001
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5001, debug=True)
