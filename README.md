@@ -34,4 +34,28 @@ Then by creating the Dockerfile ,an image is built and pushed to DockerHub.(http
 
 5. An EC2 instance can be created now on aws.I first installed docker and aws cli on EC2 instance.Then after pulling the image from DockerHub I created the container and ran the files.
 
+Sample Inputs:
+1. For creating EC2 instance:
+
+    Enter key-pair name = 'Botoapi',
+    
+    Enter Security group name='Botoapi',
+    
+    Enter ami id='ami-023sd456s78'
+    
+2. For starting/stopping/terminating an instance
+    Give instanceid='i-081765edf56'
+3. For creating S3 bucket
+   Give Bucket name='myBucket'
+
+
+
+
+
+
+
+
+
+
+
 
