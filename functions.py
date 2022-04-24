@@ -29,6 +29,7 @@ def create_instance(keyname, filename, imageid, groupname):
     # Step2:
     # Create Security Group
     resp_security = ec2.describe_security_groups()
+    description = 'This is ec2 instance with keyname='+keyname
     response = ec2.create_security_group(
         GroupName=groupname, Description=description, VpcId=resp_security['VpcId'])
     gid = response['GroupId']
