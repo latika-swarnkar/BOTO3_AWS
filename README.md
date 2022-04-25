@@ -31,15 +31,15 @@ Then by creating the Dockerfile ,an image is built and pushed to DockerHub.(http
 
 4.I have also pushed this code on github.(https://github.com/latika-swarnkar/BOTO3_AWS)
 
-5. Then,I created an EC2 instance and connected it through SSh.I first installed docker,pulled the image from docker hub and created a container.
+5. Then,I created an EC2 instance and connected it through SSh.I first installed docker,pulled the image from docker hub and created a container.Go to <public_ipv4_ec2>:5001 to see the app.
 
-Commands Used:(all the dependencies(docker,python3,flask,etc) already installed)
+## Commands Used:(all the dependencies(docker,python3,flask,etc) already installed)
 
 1.To run application:
 
     python3 frontend.py
     
-    By pm2:
+    By pm2:(have not included this command in Dockerfile)
     
         pm2 start frontend.py --interpreter python3
         
@@ -53,11 +53,20 @@ Commands Used:(all the dependencies(docker,python3,flask,etc) already installed)
     
         sudo docker push latika25/aws_boto3:v1
         
-    To run container out of this image:
+3.For hosting on Ec2:
+
+    i)Install Docker (https://docs.docker.com/engine/install/ubuntu/)
     
+    ii)sudo docker login
+    
+    iii)sudo docker pull latika25/aws_boto3:v1 .
+    
+    iv)To run container out of this image:
         sudo docker run --name myboto -p 5001:5001 -d latika25/boto3_aws:v1
-        
-Sample Inputs:
+    
+    v)Go to <public_ipv4_ec2>:5001
+
+## Sample Inputs:
 
 1. For creating EC2 instance:
 
