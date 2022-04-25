@@ -1,4 +1,4 @@
-from functions import *
+from backend import *
 from flask import Flask, redirect, url_for, render_template, request
 app = Flask(__name__)
 
@@ -22,19 +22,19 @@ def ec2():
 def createc2():
     if request.method == 'POST':
         keyname = request.form['keyname']
-        filename = keyname+'.pem'
         imageid = request.form['imageid']
-        groupname = request.form['groupname']
-        create_instance(keyname, filename, imageid, groupname)
-        return redirect(url_for('list_ec2', name=listec2))
+        create_instance(keyname, imageid)
+        return redirect(url_for('listec2'))
     else:
         return render_template('create_ec2.html')
 
 
 @ app.route("/list_ec2")
 def listec2():
+    # response = list_ec2()
+    # return response
     response = list_ec2()
-    return response
+    return render_template('list_ec2.html', response=response)
 
 
 @ app.route("/start", methods=['POST', 'GET'])
@@ -42,7 +42,8 @@ def startc2():
     if request.method == 'POST':
         instanceid = request.form['instanceid']
         start_instance(instanceid)
-        return redirect(url_for('list_ec2', name=listec2))
+        # return "Start Done"
+        return redirect(url_for('listec2'))
     else:
         return render_template('ec2.html')
 
@@ -52,7 +53,8 @@ def stopec2():
     if request.method == 'POST':
         instanceid = request.form['instanceid']
         stop_instance(instanceid)
-        return redirect(url_for('list_ec2', name=listec2))
+        # return "Stop Done"
+        return redirect(url_for('listec2'))
     else:
         return render_template('ec2.html')
 
@@ -62,7 +64,8 @@ def terminatec2():
     if request.method == 'POST':
         instanceid = request.form['instanceid']
         terminate_instance(instanceid)
-        return redirect(url_for('list_ec2', name=listec2))
+        # return "Terminate Done"
+        return redirect(url_for('listec2'))
     else:
         return render_template('ec2.html')
 
@@ -76,28 +79,43 @@ def s3():
 
 @ app.route("/list_bucket")
 def lists3():
-    response = list_s3()
-    return response
+    buckets = list_s3()
+    return render_template('list_buckets.html', buckets=buckets)
 
 
 @ app.route("/create_bucket", methods=['POST', 'GET'])
 def creates3():
     if request.method == 'POST':
         bucketname = request.form['bucketname']
-        createS3_bucket(bucketname)
-        return redirect(url_for('list_bucket', name=lists3))
+        response = createS3_bucket(bucketname)
+        print("s3 creation:", response)
+        # return "Bucket created"
+        return redirect(url_for('lists3'))
     else:
         return render_template('create_bucket.html')
 
 
-@ app.route("/upload")
+@ app.route("/upload", methods=['POST', 'GET'])
 def upload():
-    return render_template('s3.html')
+    if request.method == 'POST':
+        bucketname = request.form['bucketname']
+        file_name = request.form['file_name']
+        response = upload_file(file_name, bucketname)
+        print("file upload response", response)
+        return file_name+" uploaded"
+        # return redirect(url_for('lists3'))
+    else:
+        return render_template('upload.html')
 
 
 @ app.route("/download")
 def download():
-    return render_template('s3.html')
+    if request.method == 'POST':
+        bucketname = request.form['bucketname']
+        download_files_s3(bucketname)
+        return "Files Downloaded"
+    else:
+        return render_template('s3.html')
 
 
 # This app is running on host:0.0.0.0 and  port 5001

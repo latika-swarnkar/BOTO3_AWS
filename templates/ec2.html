@@ -36,47 +36,60 @@
     <div class="container bg-info border border-danger mt-5 rounded text-light">
         <ul>
             <li>
-                <a href="/new_ec2" class="text-light">Make new EC2 Instance</a>
+                <a href="/new_ec2" class="text-light">Create New EC2 Instance</a>
             </li>
+            <hr>
             <li>
                 <a href="/start" class="text-light">Start Instance</a>
-                <form action="/start" method="POST">
-                    <div class="form-row">
-                        <div class="form-group col-md-6 text-light">
-                            <label for="instanceid">Enter instance id of ec2 to start</label>
-                            <input type="text" class="form-control" id="instanceid" name="instanceid" required>
+                <div class="container bg-dark border border-warning rounded text-light pt-3">
+                    <form action="/start" method="POST">
+                        <div class="form-row">
+                            <div class="form-group col-md-6 text-light">
+                                <label for="instanceid">Enter instance id of ec2 to start</label>
+                                <input type="text" class="form-control" id="instanceid" name="instanceid" required>
+                            </div>
                         </div>
-                    </div>
 
-                    <button class="btn btn-danger mb-3">Submit</button>
-                </form>
+                        <button class="btn btn-danger mb-3">Submit</button>
+                    </form>
+                </div>
+
             </li>
+            <hr>
             <li>
                 <a href="/stop" class="text-light">Stop Instance</a>
-                <form action="/stop" method="POST">
-                    <div class="form-row">
-                        <div class="form-group col-md-6 text-light">
-                            <label for="instanceid">Enter instance id of ec2 to stop</label>
-                            <input type="text" class="form-control" id="instanceid" name="instanceid" required>
+                <div class="container bg-dark border border-warning rounded text-light pt-3">
+                    <form action="/stop" method="POST">
+                        <div class="form-row">
+                            <div class="form-group col-md-6 text-light">
+                                <label for="instanceid">Enter instance id of ec2 to stop</label>
+                                <input type="text" class="form-control" id="instanceid" name="instanceid" required>
+                            </div>
                         </div>
-                    </div>
 
-                    <button class="btn btn-danger mb-3">Submit</button>
-                </form>
+                        <button class="btn btn-danger mb-3">Submit</button>
+                    </form>
+                </div>
+
             </li>
+            <hr>
             <li>
                 <a href="/terminate" class="text-light">Terminate Instance</a>
-                <form action="/terminate" method="POST">
-                    <div class="form-row">
-                        <div class="form-group col-md-6 text-light">
-                            <label for="instanceid">Enter instance id of ec2 to terminate</label>
-                            <input type="text" class="form-control" id="instanceid" name="instanceid" required>
+                <div class="container bg-dark border border-warning rounded text-light pt-3">
+                    <form action="/terminate" method="POST">
+                        <div class="form-row">
+                            <div class="form-group col-md-6 text-light">
+                                <label for="instanceid">Enter instance id of ec2 to terminate</label>
+                                <input type="text" class="form-control" id="instanceid" name="instanceid" required>
+                            </div>
                         </div>
-                    </div>
 
-                    <button class="btn btn-danger mb-3">Submit</button>
-                </form>
+                        <button class="btn btn-danger mb-3">Submit</button>
+                    </form>
+                </div>
+
             </li>
+            <hr>
             <li>
                 <a href="/list_ec2" class="text-light">List all EC2 instances</a>
             </li>

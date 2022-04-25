@@ -39,12 +39,28 @@
             <li>
                 <a href="/create_bucket" class="text-light">Create new S3 bucket</a>
             </li>
+            <hr>
             <li>
                 <a href="/upload" class="text-light">Upload file to a bucket</a>
             </li>
+            <hr>
             <li>
-                <a href="/download" class="text-light">Download file from bucket</a>
+                <a href="/download" class="text-light">Download all files from bucket</a>
+                <div class="container bg-dark border border-warning rounded text-light pt-3">
+                    <form action="/download" method="POST">
+                        <div class="form-row">
+                            <div class="form-group col-md-6 text-light">
+                                <label for="bucketname">Enter Bucket Name</label>
+                                <input type="text" class="form-control" id="bucketname" name="bucketname" required>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-danger mb-3">Submit</button>
+                    </form>
+                </div>
+
             </li>
+            <hr>
             <li>
                 <a href="/list_bucket" class="text-light">List all buckets</a>
             </li>

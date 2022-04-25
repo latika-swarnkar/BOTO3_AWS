@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
-    <title>Create S3 bucket</title>
+    <title>ListEc2</title>
 </head>
 
 <body class="bg-dark">
@@ -33,22 +33,30 @@
             </ul>
         </div>
     </nav>
-    <div class="container bg-info border border-danger mt-5 rounded text-light">
-        <form action="/new_ec2" method="POST">
-            <div class="form-row">
-                <div class="form-group col-md-6 text-light">
-                    <label for="keyname">Enter Existing Key-pair Name</label>
-                    <input type="text" class="form-control" id="keyname" name="keyname" required>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6 text-light">
-                    <label for="imageid">Enter ami id</label>
-                    <input type="text" class="form-control" id="imageid" name="imageid" required>
-                </div>
-            </div>
-            <button class="btn btn-danger mb-3">Submit</button>
-        </form>
+    <div class="container bg-light border border-danger mt-5 rounded p-2">
+        <table class="table table-striped table-dark table-bordered">
+            <thead>
+                <th>Instance id</th>
+                <th>Instance type</th>
+                <th>Instance State</th>
+                <th>Launch Time</th>
+            </thead>
+            <tbody>
+                {%for reservation in response['Reservations']%}
+                {%for instance in reservation['Instances']%}
+                {%
+                if(instance['State']['Name'] in ['running','stopped','pending','stopping'])%}
+                <tr>
+                    <td>{{instance['InstanceId']}}</td>
+                    <td>{{instance['InstanceType']}}</td>
+                    <td>{{instance['State']['Name']}}</td>
+                    <td>{{instance['LaunchTime']}}</td>
+                </tr>
+                {%endif%}
+                {%endfor%}
+                {%endfor%}
+            </tbody>
+        </table>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
