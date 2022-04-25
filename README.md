@@ -41,7 +41,7 @@ Sample Inputs:
     
     Enter Security group name='Botoapi',
     
-    Enter ami id='ami-023sd456s78'
+    Enter ami id='ami-04505e74c0741db8d'
     
 2. For starting/stopping/terminating an instance
 
