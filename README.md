@@ -62,7 +62,7 @@ Then by creating the Dockerfile ,an image is built and pushed to DockerHub.(http
     iii)sudo docker pull latika25/aws_boto3:v1 .
     
     iv)To run container out of this image:
-        sudo docker run --name myboto -p 5001:5001 -d latika25/boto3_aws:v1
+            sudo docker run --name myboto -p 5001:5001 --env REGION=us-east-1 --env ACCESS_KEY=AKIAX24HVZXMN3KZFUX6  --env      SECURITY_KEY=TjDnM439E4ewVYNrmfRmVgop5D/znkv/cVz1AcIU --env OUTPUT=json latika25/boto3_aws:v1  
     
     v)Go to <public_ipv4_ec2>:5001
 
