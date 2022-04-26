@@ -90,9 +90,28 @@ Then by creating the Dockerfile ,an image is built and pushed to DockerHub.(http
 ![alt text](https://github.com/latika-swarnkar/BOTO3_AWS/blob/master/output_images/EC2ServiceHome1.png?raw=true)
 ![alt text](https://github.com/latika-swarnkar/BOTO3_AWS/blob/master/output_images/EC2ServiceHome2.png?raw=true)
 ### 3.S3 Service Home Page
-### 4.Creating EC2 Instance
-### 5.Listing EC2 Instance
-### 6.Stopping/Starting/Terminating EC2 Instance
+![alt text](https://github.com/latika-swarnkar/BOTO3_AWS/blob/master/output_images/s3_home.png?raw=true)
+### 4.Create New Key-Pair
+![alt text](https://github.com/latika-swarnkar/BOTO3_AWS/blob/master/output_images/create_key_pair.png?raw=true)
+### 5.Creating EC2 Instance
+![alt text](https://github.com/latika-swarnkar/BOTO3_AWS/blob/master/output_images/create_ec2_instance.png?raw=true)
+### 6.Listing EC2 Instance
+![alt text](https://github.com/latika-swarnkar/BOTO3_AWS/blob/master/output_images/list_ec2_instances.png?raw=true)
+### 7.Stopping/Starting/Terminating EC2 Instance
+![alt text](https://github.com/latika-swarnkar/BOTO3_AWS/blob/master/output_images/EC2ServiceHome2.png?raw=true)
+### 8.Listing after stopping a instance
+![alt text](https://github.com/latika-swarnkar/BOTO3_AWS/blob/master/output_images/list_instances_after_stopped.png?raw=true)
+### 9.Create S3 Bucket
+![alt text](https://github.com/latika-swarnkar/BOTO3_AWS/blob/master/output_images/creates3Bucket.png?raw=true)
+### 10.Uploading Files in a Bucket
+![alt text](https://github.com/latika-swarnkar/BOTO3_AWS/blob/master/output_images/uploadfileto_bucket.png?raw=true)
+### 11.Downloading Files in Bucket
+![alt text](https://github.com/latika-swarnkar/BOTO3_AWS/blob/master/output_images/downloadingFilesFromBucket.png?raw=true)
+### 12.Lists S3 Bucket
+![alt text](https://github.com/latika-swarnkar/BOTO3_AWS/blob/master/output_images/listallBuckets.png?raw=true)
+### 13.Show Items of a Bucket
+![alt text](https://github.com/latika-swarnkar/BOTO3_AWS/blob/master/output_images/show_items_of_bucket.png?raw=true)
+
 
 
 
