@@ -1,5 +1,10 @@
 # BOTO3_AWS
 AWS Services created using Pythob Boto3
+
+Tech Stack Used:
+
+Python,Flask,HTML,Bootstrap,AWS BOTO API,Docker
+
 ## Steps:
 1. I created the following functions in functions.py file:
 
