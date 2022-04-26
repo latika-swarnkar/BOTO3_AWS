@@ -29,6 +29,18 @@ def createc2():
         return render_template('create_ec2.html')
 
 
+@app.route("/create_key_pair", methods=['POST', 'GET'])
+def createkeypair():
+    if request.method == 'POST':
+        keyname = request.form['keyname']
+        create_key_pair(keyname)
+        return (
+            '<h1>Key pair Created</h1>'
+        )
+    else:
+        return render_template('ec2.html')
+
+
 @ app.route("/list_ec2")
 def listec2():
     # response = list_ec2()
@@ -95,6 +107,13 @@ def creates3():
         return render_template('create_bucket.html')
 
 
+@ app.route("/show_items/<bucket_name>", methods=['POST', 'GET'])
+def contentsbucket(bucket_name):
+    bucket_objects = contents_bucket(bucket_name)
+    buckets = list_s3()
+    return render_template("show_bucket_items.html", bucket_objects=bucket_objects)
+
+
 @ app.route("/upload", methods=['POST', 'GET'])
 def upload():
     if request.method == 'POST':
@@ -102,18 +121,17 @@ def upload():
         file_name = request.form['file_name']
         response = upload_file(file_name, bucketname)
         print("file upload response", response)
-        return file_name+" uploaded"
-        # return redirect(url_for('lists3'))
+        return redirect(url_for('lists3'))
     else:
         return render_template('upload.html')
 
 
-@ app.route("/download")
+@ app.route("/download", methods=['POST', 'GET'])
 def download():
     if request.method == 'POST':
         bucketname = request.form['bucketname']
         download_files_s3(bucketname)
-        return "Files Downloaded"
+        return "<h1>Files Downloaded in same directory</h1>"
     else:
         return render_template('s3.html')
 

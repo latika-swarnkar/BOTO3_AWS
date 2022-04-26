@@ -14,6 +14,63 @@ def list_ec2():
 # to create a new ec2 instance
 
 
+def create_key_pair(keyname):
+    ec2 = boto3.client('ec2')
+    response_create = ec2.create_key_pair(KeyName=keyname)
+    return response_create
+    # print(response_create)
+    # response = ec2.describe_key_pairs()e
+
+
+def create_security_group(security_group_name, description):
+    ec2 = boto3.client('ec2')
+    response = ec2.describe_vpcs()
+    vpc_id = response.get('Vpcs', [{}])[0].get('VpcId', '')
+    try:
+        response = ec2.create_security_group(GroupName=security_group_name,
+                                             Description=description,
+                                             VpcId=vpc_id)
+        security_group_id = response['GroupId']
+        print('Security Group Created %s in vpc %s.' %
+              (security_group_id, vpc_id))
+
+        data = ec2.authorize_security_group_ingress(
+            GroupId=security_group_id,
+            IpPermissions=[
+                {'IpProtocol': 'tcp',
+                 'FromPort': 80,
+                 'ToPort': 80,
+                 'IpRanges': [{'CidrIp': '0.0.0.0/0'}]},
+                {'IpProtocol': 'tcp',
+                 'FromPort': 22,
+                 'ToPort': 22,
+                 'IpRanges': [{'CidrIp': '0.0.0.0/0'}]}
+            ])
+        print('Ingress Successfully Set %s' % data)
+    except ClientError as e:
+        print(e)
+
+
+def delete_securitygroup(groupid):
+    # Create EC2 client
+    ec2 = boto3.client('ec2')
+    # Delete security group
+    try:
+        response = ec2.delete_security_group(GroupId=groupid)
+        print('Security Group Deleted')
+    except ClientError as e:
+        print(e)
+
+
+def list_securitygroups():
+    ec2 = boto3.client('ec2')
+    try:
+        response = ec2.describe_security_groups(GroupIds=['SECURITY_GROUP_ID'])
+        print(response)
+    except ClientError as e:
+        print(e)
+
+
 def create_instance(keyname, imageid):
     ec2 = boto3.resource('ec2')
     instances = ec2.create_instances(

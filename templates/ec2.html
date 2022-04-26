@@ -36,6 +36,22 @@
     <div class="container bg-info border border-danger mt-5 rounded text-light">
         <ul>
             <li>
+                <a href="/create_key_pair" class="text-light">Create New Key Pair</a>
+                <div class="container bg-dark border border-warning rounded text-light pt-3">
+                    <form action="/create_key_pair" method="POST">
+                        <div class="form-row">
+                            <div class="form-group col-md-6 text-light">
+                                <label for="keyname">Enter New Key pair Name</label>
+                                <input type="text" class="form-control" id="keyname" name="keyname" required>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-danger mb-3">Submit</button>
+                    </form>
+                </div>
+                <hr>
+            </li>
+            <li>
                 <a href="/new_ec2" class="text-light">Create New EC2 Instance</a>
             </li>
             <hr>
