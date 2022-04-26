@@ -83,7 +83,7 @@ Then by creating the Dockerfile ,an image is built and pushed to DockerHub.(http
 
    Give Bucket name='mybucket-latika'
 
-
+![alt text](https://github.com/latika-swarnkar/BOTO3_AWS/blob/master/output_images/EC2ServiceHome1.png?raw=true)
 
 
 
