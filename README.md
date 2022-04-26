@@ -83,7 +83,16 @@ Then by creating the Dockerfile ,an image is built and pushed to DockerHub.(http
 
    Give Bucket name='mybucket-latika'
 
+## Output FrontEnd:
+### 1.Home Page
+![alt text](https://github.com/latika-swarnkar/BOTO3_AWS/blob/master/output_images/Home.png?raw=true)
+### 2.EC2 Service Home Page
 ![alt text](https://github.com/latika-swarnkar/BOTO3_AWS/blob/master/output_images/EC2ServiceHome1.png?raw=true)
+![alt text](https://github.com/latika-swarnkar/BOTO3_AWS/blob/master/output_images/EC2ServiceHome2.png?raw=true)
+### 3.S3 Service Home Page
+### 4.Creating EC2 Instance
+### 5.Listing EC2 Instance
+### 6.Stopping/Starting/Terminating EC2 Instance
 
 
 
