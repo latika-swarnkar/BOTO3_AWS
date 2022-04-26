@@ -22,6 +22,8 @@ AWS Services created using Pythob Boto3
     ix) download files from a bucket
 
     x)Retrieve contents of a bucket
+    
+    xi)Create Key Pair
 
 
 2. Then,I created the frontend for this using flask python framework in frontend.py file.All the functions from functions.py were imported  first and then route for each function are created.
